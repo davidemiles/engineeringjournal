@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+     <link href="https://github.com/davidemiles" rel="me">
+ <link href="mailto:me@davidmiles.blog" rel="me">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="title"
+      content="{% if post.title %}{{ post.title }} - {% endif %}David's Engineering Portfolio"
+    />
+    <meta
+      name="description"
+      content="{% if post.description %}{{ post.description }}{% else %}My digital portfolio for my engineering class{% endif %}"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://portfolio.davidmiles.blog/{% if post.slug %}{{ post.slug }}{% endif %}"
+    />
+    <meta
+      property="og:title"
+      content="{% if post.title %}{{ post.title }} - {% endif %}David's Engineering Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="{% if post.description %}{{ post.description }}{% else %}My digital portfolio for my engineering class{% endif %}"
+    />
+    <meta property="og:image" content="" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://portfolio.davidmiles.blog/{% if post.slug %}{{ post.slug }}{% endif %}"
+    />
+    <meta
+      property="twitter:title"
+      content="{% if post.title %}{{ post.title }} - {% endif %}David's Engineering Portfolio"
+    />
+    <meta
+      property="twitter:description"
+      content="{% if post.description %}{{ post.description }}{% else %}My digital portfolio for my engineering class{% endif %}"
+    />
+    <meta property="twitter:image" content="" />
+    <title>aboutdavid</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.8" inline />
+
+      </head>
+  <body>
+    {{ content | safe }}
+  </body>
+  <footer>
+<p>&copy; David Miles, 2022. All rights reserved</p>
+
+</footer>
+</html>

@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+<!DOCTYPE html>
+
+<h1>david's engineering journal</h1>
+<p>my engineering portfolio/journal for my engineering class.</p>
+<h3>entries</h3>
+<ul>
+  {% for post in posts %}
+
+   <li>
+   <a href="/log/{{ post.slug }}">{{ post.title }}</a><br /><span id="blogdate">written on</span> {{
+   post.date }} &bull; {{ post.readTime }}
+ </li>
+
+ {% endfor %}
+
+</ul>
+
+
