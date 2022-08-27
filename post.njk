@@ -17,11 +17,15 @@ permalink: log/{{ post.slug }}/
 }
 
   </style>
-<h1>{{ post.title }}</h1>
-<small>Written on {{ post.date }} &bull; {{ post.readTime }} </small>
-
+<article class="h-entry">
+<h1 class="p-name">{{ post.title }}</h1>
+<small>Published by <span class="p-author h-card">David</span></small>
+<small>Written on {{ post.date }} &bull; {{ post.readTime }}</small>
+<div class="e-content">
 {{ post.html | safe }}
+</div>
 <br>
 <small>
   You can see the main site <a href="/">here</a>.
 </small>
+</article>
