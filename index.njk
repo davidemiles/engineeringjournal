@@ -2,20 +2,23 @@
 layout: base.njk
 ---
 <!DOCTYPE html>
-
-<h1>david's engineering journal</h1>
+<div class="h-feed hfeed">
+<h1 class="p-name site-title">david's engineering journal</h1>
 <p>my engineering portfolio/journal for my engineering class.</p>
 <h3>entries</h3>
+
 <ul>
   {% for post in posts %}
 
    <li>
-   <a href="/log/{{ post.slug }}">{{ post.title }}</a><br /><span id="blogdate">written on</span> {{
-   post.date }} &bull; {{ post.readTime }}
+    <article class="h-entry hentry">
+   <a href="/log/{{ post.slug }}" class="p-name entry-title">{{ post.title }}</a><br /><span class="p-summary entry-summary"><span id="blogdate">written on</span> <time class="dt-published published">{{
+   post.date }}</time> &bull; {{ post.readTime }}</span>
+   </article>
  </li>
 
  {% endfor %}
 
 </ul>
-
+</div>
 
