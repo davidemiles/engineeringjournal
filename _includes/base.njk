@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    {% set css %}
+    {% include "holiday.css" %}
+    {% include "extras.css" %}
+    {% endset %}
+
      <link href="https://github.com/davidemiles" rel="me">
      <link href="https://twitter.com/davidmiles402" rel="me">
  <link href="mailto:me@davidmiles.blog" rel="me">
@@ -49,7 +54,9 @@
     <meta property="twitter:image" content="" />
     <title>journal.davidmiles.blog</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.8" inline />
-
+<style>
+  {{ css | cssmin | safe }}
+</style>
       </head>
   <body>
     {{ content | safe }}

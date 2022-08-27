@@ -9,16 +9,13 @@ layout: base.njk
 
 <ul>
   {% for post in posts %}
-
    <li>
     <article class="h-entry hentry">
    <a href="/log/{{ post.slug }}" class="p-name entry-title">{{ post.title }}</a><br /><span class="p-summary entry-summary"><span id="blogdate">written on</span> <time class="dt-published published">{{
    post.date }}</time> &bull; {{ post.readTime }}</span>
    </article>
  </li>
-
  {% endfor %}
-
 </ul>
 </div>
 

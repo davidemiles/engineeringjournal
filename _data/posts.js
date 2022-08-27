@@ -54,6 +54,7 @@ module.exports = function () {
     var obj = [];
 
     while (i < response.results.length) {
+   
       var page = response.results[i];
       var pagedata = await notion.pages.retrieve({ page_id: page.id });
       var mddata = await new NotionExporter(process.env.COOKIE).getMdString(
@@ -63,15 +64,12 @@ module.exports = function () {
       var title = pagedata.properties.Title.title[0].plain_text;
       obj.push({
         title: title,
-        date: moment(new Date(pagedata.properties.Date.date.start)).format(
-          "MMMM do[,] YYYY"
-        ),
-        html: html.split("\n").slice(4).join("\n"),
+        date: new Date(pagedata.properties.Date.date.start).toLocaleDateString(),
+        html: html.split("\n").slice(5).join("\n"),
         readTime: readingTime(mddata).text,
-        slug: slugify(title).toLowerCase(),
-        description: desc(html).replace(/(<([^>]+)>)/gi, ""),
+        slug: pagedata.properties.Slug.rich_text[0].text.content || slugify(title).toLowerCase(),
+        description: pagedata.properties.Description.rich_text[0].text.content,
       });
-      console.log(html.split("\n").slice(4).join("\n"))
       i++;
     }
 

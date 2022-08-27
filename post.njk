@@ -19,13 +19,18 @@ permalink: log/{{ post.slug }}/
   </style>
 <article class="h-entry">
 <h1 class="p-name">{{ post.title }}</h1>
-<small>Published by <span class="p-author h-card">David</span></small><br>
-<small>Written on {{ post.date }} &bull; {{ post.readTime }}</small>
+<small>published by <span class="p-author h-card">David</span></small><br>
+<small>written on {{ post.date }} &bull; {{ post.readTime }}</small>
 <div class="e-content">
 {{ post.html | safe }}
 </div>
 <br>
+<h4 id="people"></h4>
+ 
+  <script src="/webmentions.js"></script>
+<div id="avatar"></div><br>
+<small>like the tweet assoicated with this post on <a href="https://twitter.com/davidmiles402">my twitter account</a> to submit a like (using webmentions) :)</small>
 <small>
-  You can see the main site <a href="/">here</a>.
+  you can see the main site <a href="/">here</a>.
 </small>
 </article>
