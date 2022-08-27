@@ -66,11 +66,12 @@ module.exports = function () {
         date: moment(new Date(pagedata.properties.Date.date.start)).format(
           "MMMM do[,] YYYY"
         ),
-        html: html.split("\n").slice(5).join("\n"),
+        html: html.split("\n").slice(4).join("\n"),
         readTime: readingTime(mddata).text,
         slug: slugify(title).toLowerCase(),
         description: desc(html).replace(/(<([^>]+)>)/gi, ""),
       });
+      console.log(html.split("\n").slice(4).join("\n"))
       i++;
     }
 
