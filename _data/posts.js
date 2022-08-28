@@ -65,7 +65,7 @@ module.exports = function () {
       obj.push({
         title: title,
         date: new Date(pagedata.properties.Date.date.start).toLocaleDateString(),
-        html: html.split("\n").slice(5).join("\n"),
+        html: html.split("\n").slice(5).join("\n").replaceAll("<body>","").replaceAll("</body>","").replaceAll("<html>","").replaceAll("</html>",""),
         readTime: readingTime(mddata).text,
         slug: pagedata.properties.Slug.rich_text[0].text.content || slugify(title).toLowerCase(),
         description: pagedata.properties.Description.rich_text[0].text.content,

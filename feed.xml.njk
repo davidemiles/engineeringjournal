@@ -1,0 +1,32 @@
+---
+permalink: feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>david's engineering journal</title>
+	<subtitle>my engineering portfolio/journal for my engineering class.</subtitle>
+	<link href="https://journal.davidmiles.blog" rel="self" />
+	<link href="https://journal.davidmiles.blog" />
+	<id>journal.davidmiles.blog</id>
+	<updated>{{ ISOdate }}</updated>
+	
+	{% for post in posts %}
+	<entry>
+		<title>{{ post.title }}</title>
+		<link href="http://journal.davidmiles.blog/log/{{ post.slug }}" />
+		<id>{{ post.slug }}</id>
+        <published>{{ post.date | toISOString }}</published>
+		<updated>{{ post.date | toISOString }}</updated>
+		<summary>{{ post.description }}</summary>
+		<content type="html">
+			{{ post.html | safe }}
+		</content>
+		<author>
+			<name>David</name>
+		</author>
+	</entry>
+    {% endfor %}
+
+</feed>
