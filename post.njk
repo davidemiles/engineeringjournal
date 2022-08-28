@@ -20,14 +20,14 @@ permalink: log/{{ post.slug }}/
 <article class="h-entry">
 <h1 class="p-name">{{ post.title }}</h1>
 <small>published by: <span class="p-author h-card">david</span></small><br>
-<small>written on {{ post.date }} &bull; {{ post.readTime }}</small>
+<small>written on {{ post.date | regularDate }} &bull; {{ post.readTime }}</small>
 <div class="e-content">
 {{ post.html | safe }}
 </div>
 <br>
 <h4 id="people"></h4>
  
-  <script src="/webmentions.js"></script>
+  <script src="/webmentions.js" inline></script>
 <div id="avatar"></div><br>
 <small id="tweet">Loading...</small><br>
 <small>
