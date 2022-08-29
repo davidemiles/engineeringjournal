@@ -12,7 +12,7 @@ fetch(
 
       document.querySelector(
         "#avatar"
-      ).innerHTML += `<a href="${m.author.url}" target="_blank"><abbr title="${m.author.name}"><img src="${m.author.photo}" alt="${m.author.name}" class="avatar"></abbr></a>`;
+      ).innerHTML += `<a href="${m.author.url}" target="_blank" onclick="clickedOnWebmention()"><abbr title="${m.author.name}"><img src="${m.author.photo}" alt="${m.author.name}" class="avatar"></abbr></a>`;
       document.querySelector("#people").innerHTML = `${data.children.length} ${
         data.children.length > 1 ? "people" : "person"
       } liked this journal entry`;
@@ -25,9 +25,11 @@ fetch(
 )
   .then((response) => response.json())
   .then((data) => {
-    if (!data.success)
+    if (!data.success){
       document.querySelector("#tweet").innerHTML = "Failed to load tweet.";
+      sa_event("failed_to_load_tweet")
+    }
     document.querySelector(
       "#tweet"
-    ).innerHTML = `If you want to like this post, like <a href="${data.url}" target="_blank">this tweet</a> :)`;
+    ).innerHTML = `If you want to like this post, like <a href="${data.url}" onclick="wentToLike()" target="_blank">this tweet</a> :)`;
   });

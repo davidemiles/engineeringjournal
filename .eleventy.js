@@ -5,6 +5,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("_headers");
   eleventyConfig.addPassthroughCopy("webmentions.js");
+  eleventyConfig.addPassthroughCopy("events.js");
   eleventyConfig.addFilter("regularDate", function(value) { 
     return new Date(value).toLocaleString('en-US', { timeZone: 'America/New_York', timeStyle: "short", dateStyle: "long" }).split(" at")[0] 
    });
